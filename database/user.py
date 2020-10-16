@@ -3,7 +3,7 @@ import json
 import datetime
 
 columnNames = ["userID", "username", "password"]
-connection = sqlite3.connect("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\database\database.db")
+connection = sqlite3.connect("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\database\database.db", check_same_thread = False)
 
 def connect():
     try:
@@ -57,5 +57,3 @@ def unitTest():
     # delete(2)
     # print(retreive(1))
     connection.close()
-
-unitTest()

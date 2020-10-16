@@ -3,7 +3,7 @@ import json
 import datetime
 
 columnNames = ["answerID", "questionID", "answer", "authorID", "created"]
-connection = sqlite3.connect("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\database\database.db")
+connection = sqlite3.connect("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\database\database.db", check_same_thread = False)
 
 def connect():
     try:
