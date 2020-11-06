@@ -102,7 +102,7 @@ def deleteQuestion():
         return jsonify({"Response": "Success"})
 
 @app.route("/delete/answer/", methods = ["GET", "POST"])
-def deleteQuestion():
+def deleteAnswer():
     if request.method == "GET":
         return jsonify({"Error": "Illegal Request"})
     else:
