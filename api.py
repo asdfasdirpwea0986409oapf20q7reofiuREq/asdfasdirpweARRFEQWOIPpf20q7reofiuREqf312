@@ -3,6 +3,11 @@ import database
 
 app = Flask(__name__)
 
+"""
+TODO: Remove 'GET' requests
+TODO: Create endpoints for question, answer, and user; allow methods used to run the needed code
+"""
+
 @app.route("/", methods = ["GET"])
 def homepage():
     return jsonify({"Response": "Welcome to Zeus!"})
