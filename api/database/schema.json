@@ -1,0 +1,6 @@
+{
+    "users": ["id", "created", "username", "name", "email", "asked", "answered"],
+    "tackboards": ["id", "name", "subject", "description", "public", "ownerID", "created", "memberIDs", "questionIDs", "answersIDs"],
+    "questions": ["id", "authorID", "upvotes", "downvotes", "answeredMemberIDs", "created", "question"],
+    "answers": ["id", "questionID", "authorID", "upvotes", "downvotes", "created", "answer"]
+}
