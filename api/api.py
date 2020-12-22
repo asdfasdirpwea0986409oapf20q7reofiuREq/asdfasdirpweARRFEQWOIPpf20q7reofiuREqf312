@@ -27,7 +27,10 @@ def user():
     try:
         values = json.loads(request.get_json())
     except TypeError:
-        pass # means that request is GET or faulty
+        if request.method != "GET":
+            abort(406) # means that request is faulty
+        else:
+            pass
     try:
         if request.method == "POST":
             database.users.create(connection, id = values["id"], created = values["created"], username = values["username"], name = values["name"], email = values["email"], asked = values["asked"], answered = values["answered"])
@@ -52,7 +55,10 @@ def tackboard():
     try:
         values = json.loads(request.get_json())
     except TypeError:
-        pass # means that request is GET or faulty
+        if request.method != "GET":
+            abort(406) # means that request is faulty
+        else:
+            pass
     try:
         if request.method == "POST":
             database.tackboards.create(connection, id = values["id"], name = values["name"], subject = values["subject"], description = values["description"], public = values["public"], ownerID = values["ownerID"], created = values["created"], memberIDs = values["memberIDs"], questionIDs = values["questionIDs"], answersIDs = values["answersIDs"])
@@ -77,7 +83,10 @@ def question():
     try:
         values = json.loads(request.get_json())
     except TypeError:
-        pass # means that request is GET or faulty
+        if request.method != "GET":
+            abort(406) # means that request is faulty
+        else:
+            pass
     try:
         if request.method == "POST":
             database.questions.create(connection, id = values["id"], authorID = values["authorID"], upvotes = values["upvotes"], downvotes = values["downvotes"], answeredMemberIDs = values["answeredMemberIDs"], created = values["created"], question = values["question"])
@@ -102,13 +111,16 @@ def answer():
     try:
         values = json.loads(request.get_json())
     except TypeError:
-        pass # means that request is GET or faulty
+        if request.method != "GET":
+            abort(406) # means that request is faulty
+        else:
+            pass
     try:
         if request.method == "POST":
             database.answers.create(connection, id = values["id"], questionID = values["questionID"], authorID = values["authorID"], upvotes = values["upvotes"], downvotes = values["downvotes"], created = values["created"], answer = values["answer"])
             return jsonify({"message" : "success"}), 201
         elif request.method == "GET":
-            data = database.answers.retreive(connection, int(request.args.get("id")))
+            data = database.answers.retreive(connection, 0)
             return jsonify(data), 200
         elif request.method == "PATCH":
             database.answers.update(connection, values["id"], values["column"], values["new"])
@@ -122,4 +134,4 @@ def answer():
         abort(406)
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0", port = 5000, debug = True)
+    app.run(host = "127.0.0.1", port = 5000, debug = True)
