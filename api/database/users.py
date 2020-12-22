@@ -1,12 +1,11 @@
 import sqlite3
-import pprint
 import database.schema
-import json
+import os
 
 columns = tuple(database.schema.users())
 
 def connect():
-    connection = sqlite3.connect("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\api\\database\\database.db", check_same_thread = False) # check_same_thread allows us to run threaded queries
+    connection = sqlite3.connect(os.getcwd() + "\\api\\database\\database.db", check_same_thread = False) # check_same_thread allows us to run threaded queries
     try:
         connection.execute("""CREATE TABLE users (
     id integer UNIQUE,

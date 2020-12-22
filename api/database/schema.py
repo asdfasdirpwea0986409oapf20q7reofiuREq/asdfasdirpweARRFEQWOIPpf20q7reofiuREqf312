@@ -1,6 +1,7 @@
 import json
+import os
 
-with open("C:\\Users\\rngup\\OneDrive\\Documents\\Programming\\Tackboard\\api\\database\\schema.json", "r") as file:
+with open(os.getcwd() + "\\api\\database\\schema.json", "r") as file:
     content = json.load(file)
 
 def tackboards():
