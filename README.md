@@ -1,5 +1,5 @@
 <p align = "center">
-  <img src="https://raw.githubusercontent.com/et-sollertis-animi/Tackboard/master/logo.png">
+  <img src="https://github.com/et-sollertis-animi/Tackboard/raw/master/logo.png">
 </p>
 <hr>
 # Tackboard
