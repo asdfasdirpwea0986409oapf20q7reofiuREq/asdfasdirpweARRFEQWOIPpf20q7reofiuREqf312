@@ -4,6 +4,9 @@ import json
 
 app = Flask("Tackboard API")
 
+def error(exception):
+    return jsonify({"error" : "something went wrong", "details" : f"the error was in the view function {str(exception)}"}), 500
+
 @app.errorhandler(404)
 def notFound(error):
     return jsonify({"error" : "that view function was not found", "details" : str(error)}), 404
@@ -48,6 +51,8 @@ def user():
         abort(406)
     except TypeError: # user did not pass in id in url for retrieve method
         abort(406)
+    except Exception as exception: # something went wrong in this function
+        return error(exception)
 
 @app.route("/tackboards", methods = ["POST", "GET", "PATCH", "DELETE"])
 def tackboard():
@@ -76,6 +81,8 @@ def tackboard():
         abort(406)
     except TypeError: # user did not pass in id in url for retrieve method
         abort(406)
+    except Exception as exception: # something went wrong in this function
+        return error(exception)
 
 @app.route("/questions", methods = ["POST", "GET", "PATCH", "DELETE"])
 def question():
@@ -104,6 +111,8 @@ def question():
         abort(406)
     except TypeError: # user did not pass in id in url for retrieve method
         abort(406)
+    except Exception as exception: # something went wrong in this function
+        return error(exception)
 
 @app.route("/answers", methods = ["POST", "GET", "PATCH", "DELETE"])
 def answer():
@@ -128,10 +137,10 @@ def answer():
         elif request.method == "DELETE":
             database.answers.delete(connection, values["id"])
             return jsonify({"message" : "success"}), 200
-    except KeyError: # user did not pass in necessary data 
-        abort(406)
     except TypeError: # user did not pass in id in url for retrieve method
         abort(406)
+    except Exception as exception: # something went wrong in this function
+        return error(exception)
 
 if __name__ == "__main__":
     app.run(host = "127.0.0.1", port = 5000, debug = True)
