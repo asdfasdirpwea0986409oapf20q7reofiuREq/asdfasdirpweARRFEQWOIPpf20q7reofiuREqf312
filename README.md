@@ -3,4 +3,4 @@
 </p>
 
 ## Overview
-Tackboard is a web application that aims to get rid of the problems students face when trying to engage in group learning. Often, students are distracted and cannot get any work done; however, Tackboard will allow them to setup questions and share ideas quicker than ever. They can create questions and quiz themselves on it, while contributing their own ideas, they will also be able to see what others think and improve their own learning. Throgh this method, everyone will be able to learn and grow, without the hassles that traditional group learning comes with.
+Tackboard is a web application that aims to get rid of the problems students face when trying to engage in group learning. Often, students are distracted and cannot get any work done; however, Tackboard will allow them to setup questions and share ideas quicker than ever. They can create questions and quiz themselves on it. While contributing their own ideas, they will also be able to see what others think and improve their own learning. Throgh this method, everyone will be able to learn and grow, without the hassles that traditional group learning comes with.
