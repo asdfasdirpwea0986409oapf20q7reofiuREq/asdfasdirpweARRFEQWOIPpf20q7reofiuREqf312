@@ -2,8 +2,12 @@ import requests
 import datetime
 import json
 
-post = {"id" : 0, "authorID" : 0, "upvotes" : 10, "downvotes": 0, "answeredMemberIDs" : json.dumps([0]), "created" : str(datetime.datetime.now()), "question" : "Does this API actually work?"}
+post = {"id" : 1, "authorID" : 0, "upvotes" : 10, "downvotes": 0, "answeredMemberIDs" : json.dumps([0]), "created" : str(datetime.datetime.now()), "question" : "Who am I?"}
 
-response = requests.get("http://127.0.0.1:5000/questions")
+patch = {"id" : 1, "column" : "upvotes", "new" : 999}
 
-print(response.text["id"])
+delete = {"id" : 1}
+
+response = requests.delete("https://asdfasdirpwearrfeqwoippf20q7reofiureqf312.asdfasdirpwea09.repl.co/questions", json = json.dumps(delete))
+
+print(response.text)
