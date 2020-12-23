@@ -5,4 +5,4 @@
 - [ ] add event handling for all database functions, return error like api
 - [ ] making a toolbox api for the api so that we don't lose space on the REPL but stil have an advanced api
 - [ ] make another database for low-prority items (points)
-- [ ] make unit tests for api
+- [x] make unit tests for api
